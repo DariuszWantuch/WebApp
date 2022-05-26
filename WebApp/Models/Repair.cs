@@ -8,7 +8,7 @@ namespace WebApp.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         public int RepairId { get; set; }
 
@@ -30,23 +30,23 @@ namespace WebApp.Models
         [DataType(DataType.Text)]
         public string Tracking { get; set; }
 
-        public string StatusId { get; set; }
+        public int StatusId { get; set; }
         [ForeignKey("StatusId")]
         public Status Status { get; set; }
 
-        public string RepairCostId { get; set; }
+        public int RepairCostId { get; set; }
         [ForeignKey("RepairCostId")]
         public RepairCost RepairCost { get; set; }
 
-        public string AddressId { get; set; }
+        public int AddressId { get; set; }
         [ForeignKey("AddressId")]
         public Address Address { get; set; }
 
-        public string DeviceTypeId { get; set; }
+        public int DeviceTypeId { get; set; }
         [ForeignKey("DeviceTypeId")]
         public DeviceType DeviceType { get; set; }
 
-        public string MarkId { get; set; }
+        public int MarkId { get; set; }
 
         [ForeignKey("MarkId")]
         public Mark Mark { get; set; }

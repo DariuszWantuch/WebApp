@@ -16,20 +16,5 @@ namespace WebApp.Data.Repository
         {
             _db = db;
         }
-
-        public string GetStatusIdByName(string name)
-        {
-            var obj = _db.Status.FirstOrDefault(x => x.RepairStatus == name);
-            return obj.Id;
-        }
-
-        public IEnumerable<SelectListItem> GetStatusListFromDropDown()
-        {
-            return _db.Status.Select(i => new SelectListItem()
-            {
-                Text = i.RepairStatus,
-                Value = i.Id.ToString()
-            });
-        }
     }
 }

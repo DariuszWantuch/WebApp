@@ -9,10 +9,6 @@ namespace WebApp.Data.Repository.IRepository
 {
     public interface IMarkRepository : IRepository<Mark>
     {
-        IEnumerable<SelectListItem> GetMarkListFromDropDown();
-
         void Update(Mark mark);
-
-        public bool IsMarkExist(string name);
     }
 }

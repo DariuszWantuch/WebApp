@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebApp.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,8 @@ namespace WebApp.Migrations
                 name: "Address",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PhoneNumber = table.Column<int>(type: "int", nullable: false),
@@ -30,7 +31,8 @@ namespace WebApp.Migrations
                 name: "DeviceType",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     DeviceName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TransportCost = table.Column<double>(type: "float", nullable: false)
                 },
@@ -68,7 +70,8 @@ namespace WebApp.Migrations
                 name: "Mark",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     MarkName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -80,7 +83,8 @@ namespace WebApp.Migrations
                 name: "RepairCost",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     FaultDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Cost = table.Column<float>(type: "real", nullable: false),
                     IsAccepted = table.Column<bool>(type: "bit", nullable: false),
@@ -95,7 +99,8 @@ namespace WebApp.Migrations
                 name: "Status",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     RepairStatus = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -107,7 +112,8 @@ namespace WebApp.Migrations
                 name: "Repair",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     RepairId = table.Column<int>(type: "int", nullable: false),
                     ReportDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PickupDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -115,11 +121,11 @@ namespace WebApp.Migrations
                     Describe = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Warranty = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Tracking = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    StatusId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    RepairCostId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    AddressId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    DeviceTypeId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    MarkId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    StatusId = table.Column<int>(type: "int", nullable: false),
+                    RepairCostId = table.Column<int>(type: "int", nullable: false),
+                    AddressId = table.Column<int>(type: "int", nullable: false),
+                    DeviceTypeId = table.Column<int>(type: "int", nullable: false),
+                    MarkId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>

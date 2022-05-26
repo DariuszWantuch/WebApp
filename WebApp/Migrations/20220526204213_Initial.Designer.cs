@@ -12,8 +12,8 @@ using WebApp.Data;
 namespace WebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220504210442_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20220526204213_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -78,8 +78,11 @@ namespace WebApp.Migrations
 
             modelBuilder.Entity("WebApp.Models.Address", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("City")
                         .IsRequired()
@@ -110,9 +113,11 @@ namespace WebApp.Migrations
 
             modelBuilder.Entity("WebApp.Models.DeviceType", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("DeviceName")
                         .IsRequired()
@@ -128,9 +133,11 @@ namespace WebApp.Migrations
 
             modelBuilder.Entity("WebApp.Models.Mark", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("MarkName")
                         .IsRequired()
@@ -143,13 +150,14 @@ namespace WebApp.Migrations
 
             modelBuilder.Entity("WebApp.Models.Repair", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("int");
 
-                    b.Property<string>("AddressId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("AddressId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Describe")
                         .IsRequired()
@@ -159,20 +167,17 @@ namespace WebApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DeviceTypeId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("DeviceTypeId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("MarkId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("MarkId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("PickupDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("RepairCostId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("RepairCostId")
+                        .HasColumnType("int");
 
                     b.Property<int>("RepairId")
                         .HasColumnType("int");
@@ -180,9 +185,8 @@ namespace WebApp.Migrations
                     b.Property<DateTime>("ReportDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("StatusId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("StatusId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Tracking")
                         .IsRequired()
@@ -215,9 +219,11 @@ namespace WebApp.Migrations
 
             modelBuilder.Entity("WebApp.Models.RepairCost", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<float>("Cost")
                         .HasColumnType("real");
@@ -239,9 +245,11 @@ namespace WebApp.Migrations
 
             modelBuilder.Entity("WebApp.Models.Status", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("RepairStatus")
                         .IsRequired()

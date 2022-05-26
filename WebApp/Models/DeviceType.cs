@@ -7,7 +7,7 @@ namespace WebApp.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         [DataType(DataType.Text)]
         public string DeviceName { get; set; }

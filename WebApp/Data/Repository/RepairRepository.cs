@@ -15,19 +15,6 @@ namespace WebApp.Data.Repository
         {
             _db = db;
         }
-        public void ChangeRepairStatus(string repairId, string statusId)
-        {
-            var obj = _db.Repair.FirstOrDefault(s => s.Id == repairId);
-            obj.StatusId = statusId;
-            _db.SaveChanges();
-        }    
-
-        public int RepairID()
-        {
-            var repairID = _db.Repair.Count() + 1;
-
-            return repairID;
-        }
 
         public void Update(Repair repair)
         {

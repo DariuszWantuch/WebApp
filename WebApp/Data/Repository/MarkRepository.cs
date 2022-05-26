@@ -17,21 +17,6 @@ namespace WebApp.Data.Repository
             _db = db;
         }
 
-        public IEnumerable<SelectListItem> GetMarkListFromDropDown()
-        {
-            return _db.Mark.Select(i => new SelectListItem()
-            {
-                Text = i.MarkName,
-                Value = i.Id.ToString()
-            });
-        }
-
-        public bool IsMarkExist(string name)
-        {
-            return _db.Mark.Any(
-                x => x.MarkName == name);
-        }
-
         public void Update(Mark mark)
         {
             var obj = _db.Mark.FirstOrDefault(x => x.Id == mark.Id);

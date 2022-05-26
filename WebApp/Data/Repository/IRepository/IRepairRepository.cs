@@ -8,9 +8,6 @@ namespace WebApp.Data.Repository.IRepository
 {
     public interface IRepairRepository : IRepository<Repair>
     {
-
-        int RepairID();
-        void ChangeRepairStatus(string repairId, string statusId);
         void Update(Repair repair);
     }
 }

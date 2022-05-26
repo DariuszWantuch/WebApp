@@ -9,7 +9,5 @@ namespace WebApp.Data.Repository.IRepository
 {
     public interface IStatusRepository : IRepository<Status>
     {
-        string GetStatusIdByName(string name);
-        IEnumerable<SelectListItem> GetStatusListFromDropDown();
     }
 }

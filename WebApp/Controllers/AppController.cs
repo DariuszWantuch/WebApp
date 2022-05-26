@@ -1,21 +1,24 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebApp.Data;
+using WebApp.Data.Repository.IRepository;
 using WebApp.Models;
-using WebApp.Services;
 
 namespace WebApp.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class AppController : ControllerBase
+    public class AppController : Controller
     {
-        AppService _appService;
+        private readonly ApplicationDbContext _context;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger<AppController> _logger;
 
-        public AppController(AppService appService, ILogger<AppController> logger)
+        public AppController(ILogger<AppController> logger, IUnitOfWork unitOfWork, ApplicationDbContext context)
         {
-            _appService = appService;
+            _context = context;
             _logger = logger;
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet(Name = "Test")]
@@ -29,20 +32,23 @@ namespace WebApp.Controllers
         {
             try
             {
-                RepairCost repairCost = new RepairCost();
-                repairCost.Cost = 56;
-                repairCost.FaultDescription = "TEST";
-                repairCost.IsAccepted = false;
-                repairCost.IsRejected = false;
-
                 for (int i = 0; i < 10000; i++)
                 {
-                    
+                    RepairCost repairCost = new RepairCost();
+                    repairCost.Cost = i;
+                    repairCost.FaultDescription = "TEST";
+                    repairCost.IsAccepted = false;
+                    repairCost.IsRejected = false;
+
+                    _context.RepairCost.Add(repairCost);
+                    _context.SaveChanges();
                 }
+
+                return StatusCode(200, "Dodano rekordy");
             }
             catch (Exception ex)
             {
-                Results.StatusCode(500);
+                return StatusCode(500, $"Wystąpił błąd: {ex}");
             }
         }
     }
