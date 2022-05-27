@@ -10,7 +10,7 @@ namespace WebApp.Models
         public int Id { get; set; }
 
         [DataType(DataType.MultilineText)]
-        public string FaultDescription { get; set; }
+        public string? FaultDescription { get; set; }
 
         [DataType(DataType.Currency)]
         public float Cost { get; set; }

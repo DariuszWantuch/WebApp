@@ -11,7 +11,7 @@ namespace WebApp.Models
 
         [Required]
         [DataType(DataType.Text)]
-        public string MarkName { get; set; }
+        public string? MarkName { get; set; }
 
         public virtual ICollection<Repair> Repairs { get; set; }
     }

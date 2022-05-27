@@ -10,7 +10,7 @@ namespace WebApp.Models
         public int Id { get; set; }
 
         [DataType(DataType.Text)]
-        public string RepairStatus { get; set; }
+        public string? RepairStatus { get; set; }
 
         public virtual ICollection<Repair> Repairs { get; set; }
     }

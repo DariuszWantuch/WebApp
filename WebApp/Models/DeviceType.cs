@@ -10,7 +10,7 @@ namespace WebApp.Models
         public int Id { get; set; }
 
         [DataType(DataType.Text)]
-        public string DeviceName { get; set; }
+        public string? DeviceName { get; set; }
 
         [DataType(DataType.Currency)]
         public double TransportCost { get; set; }

@@ -19,16 +19,16 @@ namespace WebApp.Models
         public DateTime PickupDate { get; set; }
 
         [DataType(DataType.Text)]
-        public string DeviceModel { get; set; }
+        public string? DeviceModel { get; set; }
 
         [DataType(DataType.MultilineText)]
-        public string Describe { get; set; }
+        public string? Describe { get; set; }
 
         [DataType(DataType.ImageUrl)]
-        public string Warranty { get; set; }
+        public string? Warranty { get; set; }
 
         [DataType(DataType.Text)]
-        public string Tracking { get; set; }
+        public string? Tracking { get; set; }
 
         public int StatusId { get; set; }
         [ForeignKey("StatusId")]

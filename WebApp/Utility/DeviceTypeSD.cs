@@ -19,7 +19,5 @@
         public const double MicrowaveCost = 30;
         public const double InductionCost = 40;
         public const double OtherCost = 0;
-
-
     }
 }

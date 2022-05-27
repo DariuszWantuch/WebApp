@@ -6,28 +6,28 @@ using WebApp.Models;
 
 namespace WebApp.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("[controller]")]
-    public class AppController : Controller
+    public class EntityFrameworkController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ILogger<AppController> _logger;
+        private readonly ILogger<EntityFrameworkController> _logger;
 
-        public AppController(ILogger<AppController> logger, IUnitOfWork unitOfWork, ApplicationDbContext context)
+        public EntityFrameworkController(ILogger<EntityFrameworkController> logger, IUnitOfWork unitOfWork, ApplicationDbContext context)
         {
             _context = context;
             _logger = logger;
             _unitOfWork = unitOfWork;
         }
 
-        [HttpGet(Name = "Test")]
+        [HttpGet, Route("Test")]
         public ActionResult Test()
         {
             return Ok();
         }
 
-        [HttpPost(Name = "SaveDataToDatabase")]
+        [HttpPost, Route("SaveDataToDatabase")]
         public ActionResult SaveDataToDatabase()
         {
             try
