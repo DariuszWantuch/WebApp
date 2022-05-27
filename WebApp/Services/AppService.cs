@@ -111,12 +111,11 @@ namespace WebApp.Services
         private string GetWarranty() 
         {
             List<string> warrantyList = new List<string>();
-            warrantyList.Add("https://inpost.pl/sledzenie-przesylek?number=873234987612340872938732");
-            warrantyList.Add("https://inpost.pl/sledzenie-przesylek?number=967745675675673485676577");
-            warrantyList.Add("https://inpost.pl/sledzenie-przesylek?number=856745676574567675677674");
-            warrantyList.Add("https://inpost.pl/sledzenie-przesylek?number=645647434564565467675475");
-            warrantyList.Add("https://inpost.pl/sledzenie-przesylek?number=875785735657856789867678");
-            warrantyList.Add("https://inpost.pl/sledzenie-przesylek?number=567895768567987689674797");
+            warrantyList.Add("24 months");
+            warrantyList.Add("12 months");
+            warrantyList.Add("8 months");
+            warrantyList.Add("6 months");
+            warrantyList.Add("3 months");
 
             int index = _random.Next(warrantyList.Count);
 
