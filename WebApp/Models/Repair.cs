@@ -8,9 +8,7 @@ namespace WebApp.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
-        public int RepairId { get; set; }
+        public string Id { get; set; }
 
         [DataType(DataType.DateTime)]
         public DateTime ReportDate { get; set; }
@@ -32,24 +30,24 @@ namespace WebApp.Models
 
         public string StatusId { get; set; }
         [ForeignKey("StatusId")]
-        public Status Status { get; set; }
+        public virtual Status Status { get; set; }
 
         public string RepairCostId { get; set; }
         [ForeignKey("RepairCostId")]
-        public RepairCost RepairCost { get; set; }
+        public virtual RepairCost RepairCost { get; set; }
 
         public string AddressId { get; set; }
         [ForeignKey("AddressId")]
-        public Address Address { get; set; }
+        public virtual Address Address { get; set; }
 
         public string DeviceTypeId { get; set; }
         [ForeignKey("DeviceTypeId")]
-        public DeviceType DeviceType { get; set; }
+        public virtual DeviceType DeviceType { get; set; }
 
         public string MarkId { get; set; }
 
         [ForeignKey("MarkId")]
-        public Mark Mark { get; set; }
+        public virtual Mark Mark { get; set; }
 
         public string UserId { get; set; }
 

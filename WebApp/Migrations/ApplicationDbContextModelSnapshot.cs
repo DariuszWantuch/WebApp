@@ -251,7 +251,7 @@ namespace WebApp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "12616652-481e-4d57-8fd5-5876f83276b8",
+                            Id = "faa41e7a-720a-4f52-9ae4-7c251e0ea748",
                             City = "Kraków",
                             FirstName = "Stanisław",
                             LastName = "Jabłoński",
@@ -261,7 +261,7 @@ namespace WebApp.Migrations
                         },
                         new
                         {
-                            Id = "e16319cc-56f6-4f0b-af07-10afb3922d07",
+                            Id = "ca9db23b-0858-4f29-b046-ccfd54b91a3c",
                             City = "Warszawa",
                             FirstName = "Karina",
                             LastName = "Nowicka",
@@ -271,7 +271,7 @@ namespace WebApp.Migrations
                         },
                         new
                         {
-                            Id = "29826165-6d7a-43dd-9c94-be29156f7e54",
+                            Id = "3fe0d24b-9adf-4efd-aefa-24656b535661",
                             City = "Kraków",
                             FirstName = "Klaudia",
                             LastName = "Rutkowska",
@@ -281,7 +281,7 @@ namespace WebApp.Migrations
                         },
                         new
                         {
-                            Id = "40f3ba77-6a4f-45c6-937d-7c4e3dc8ccad",
+                            Id = "2fa2e43d-8448-40aa-845a-921f58c320aa",
                             City = "Wrocław",
                             FirstName = "Iwo",
                             LastName = "Adamczyk",
@@ -291,7 +291,7 @@ namespace WebApp.Migrations
                         },
                         new
                         {
-                            Id = "b4c982b1-aa18-463f-803c-89eb882c80a0",
+                            Id = "9b600e0d-79a4-4c8e-b703-adb4f2eae582",
                             City = "Warszawa",
                             FirstName = "Joasia",
                             LastName = "Kowalczyk",
@@ -320,49 +320,49 @@ namespace WebApp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "731657e5-0806-4f38-a3d0-c0c3b3b34644",
+                            Id = "6f94fd18-53e1-4b9a-bfe8-7f7720f5fff3",
                             DeviceName = "Lodówka",
                             TransportCost = 100.0
                         },
                         new
                         {
-                            Id = "14d7daee-9856-4534-853b-32c367d514dd",
+                            Id = "daaa9340-1b44-458a-8b78-8af38610b908",
                             DeviceName = "Indukcja",
                             TransportCost = 40.0
                         },
                         new
                         {
-                            Id = "804fa70d-4e6f-4903-b14e-21d0e5ca82ac",
+                            Id = "4d45c3f5-a42c-4503-bbaf-375686151281",
                             DeviceName = "Mikrofalówka",
                             TransportCost = 30.0
                         },
                         new
                         {
-                            Id = "58541f43-c67b-4952-9f65-41f3caeb52b8",
+                            Id = "59a1932f-da5b-44f9-b086-dbc14547b60e",
                             DeviceName = "Inne",
                             TransportCost = 0.0
                         },
                         new
                         {
-                            Id = "820c4263-0136-480f-aebc-0a13b75a36cb",
+                            Id = "fde788d8-f8c2-4024-924d-39ac567f071d",
                             DeviceName = "Piekarnik",
                             TransportCost = 50.0
                         },
                         new
                         {
-                            Id = "fdb3230f-8ce7-4eff-92a7-d9968700df84",
+                            Id = "c8265deb-2971-489f-991b-471c81c469a0",
                             DeviceName = "Telewizor",
                             TransportCost = 100.0
                         },
                         new
                         {
-                            Id = "5319572b-c0f1-4c28-91ec-75cff4593f10",
+                            Id = "6f3f6198-035d-4ce7-894b-6119615d880f",
                             DeviceName = "Pralka",
                             TransportCost = 50.0
                         },
                         new
                         {
-                            Id = "ecb3de67-7c5c-414e-91d0-da2cec9530d7",
+                            Id = "2be8e865-0d6d-40fa-8afc-504b4966dc88",
                             DeviceName = "Zmywarka",
                             TransportCost = 50.0
                         });
@@ -385,63 +385,61 @@ namespace WebApp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d623a510-4029-46e9-807f-3b3a40cb3bcb",
+                            Id = "c3683285-faba-433d-8141-cdd4a5c75c92",
                             MarkName = "Samsung"
                         },
                         new
                         {
-                            Id = "ec5d4855-1dc8-4f65-8dd0-10ed0d0d7692",
+                            Id = "e5fbac53-b215-47b9-9e57-e742e401bb52",
                             MarkName = "Amica"
                         },
                         new
                         {
-                            Id = "b5ce664d-14f2-4742-bab4-d2edd4165cf1",
+                            Id = "81f55e52-579b-46fe-9696-2c8a44bff5c1",
                             MarkName = "Philips"
                         },
                         new
                         {
-                            Id = "7ce767d9-b4e8-42ca-b851-c7a0ebb103cf",
+                            Id = "b7dcc828-7047-4233-8ae4-ce33d21622e2",
                             MarkName = "Sony"
                         },
                         new
                         {
-                            Id = "ebab334c-a64f-4fd4-865f-4fd2b3dae046",
+                            Id = "482559ea-9ece-41b3-94be-1b61bc5272c6",
                             MarkName = "Huawei"
                         },
                         new
                         {
-                            Id = "853cdad7-4a46-427e-ab4b-a3a3d133f3f8",
+                            Id = "8847de53-644d-4b9b-b39b-47711078387d",
                             MarkName = "Siemens"
                         },
                         new
                         {
-                            Id = "e74296bf-2065-4a88-86d5-1c41ffe8d2d5",
+                            Id = "fc3a3c95-553d-4ed4-b480-b0b1a6032427",
                             MarkName = "Bosh"
                         },
                         new
                         {
-                            Id = "8814c06b-fd6e-4dd2-95e1-e27aeae7cb20",
+                            Id = "a01bd981-d7c3-46a4-a1b1-56c3d3da0cb5",
                             MarkName = "Whirlpool"
                         },
                         new
                         {
-                            Id = "10bd75e2-5e3f-4150-95bc-dcf4374f3071",
+                            Id = "e64dd8ba-db31-4df1-b9d5-5edf0d19d763",
                             MarkName = "AEG"
                         },
                         new
                         {
-                            Id = "03aa9ebb-dfcd-42ed-aa12-da90ca278c4f",
+                            Id = "f91d65af-b4aa-4c88-8a20-b86d56a83da8",
                             MarkName = "Logitech"
                         });
                 });
 
             modelBuilder.Entity("WebApp.Models.Repair", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("AddressId")
                         .IsRequired()
@@ -467,9 +465,6 @@ namespace WebApp.Migrations
                     b.Property<string>("RepairCostId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("RepairId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("ReportDate")
                         .HasColumnType("datetime2");
@@ -511,8 +506,8 @@ namespace WebApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<float>("Cost")
-                        .HasColumnType("real");
+                    b.Property<double>("Cost")
+                        .HasColumnType("float");
 
                     b.Property<string>("FaultDescription")
                         .HasColumnType("nvarchar(max)");
@@ -526,6 +521,32 @@ namespace WebApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("RepairCost");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "7577c984-755b-484a-b77c-f9d613611eae",
+                            Cost = 67.599999999999994,
+                            FaultDescription = "Uszkodzony silnik.",
+                            IsAccepted = true,
+                            IsRejected = false
+                        },
+                        new
+                        {
+                            Id = "0a4e4844-85da-4958-8f14-c83cd8545214",
+                            Cost = 67.599999999999994,
+                            FaultDescription = "Uszkodzone drzwi.",
+                            IsAccepted = true,
+                            IsRejected = false
+                        },
+                        new
+                        {
+                            Id = "742f35b0-300c-4db6-a4ed-fd75b56119e9",
+                            Cost = 67.599999999999994,
+                            FaultDescription = "Uszkodzony kabel.",
+                            IsAccepted = true,
+                            IsRejected = false
+                        });
                 });
 
             modelBuilder.Entity("WebApp.Models.Status", b =>
@@ -544,52 +565,52 @@ namespace WebApp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1d4fd154-c870-4bcc-abce-30ca4cc811db",
+                            Id = "29c97c05-a835-4078-a41a-279e310208be",
                             RepairStatus = "Naprawa została zgłoszona"
                         },
                         new
                         {
-                            Id = "7036ae37-08b2-4a22-bc1c-1a400517b88e",
+                            Id = "6276f77c-6e77-498c-848d-ae86cbf86234",
                             RepairStatus = "Wysłano kuriera"
                         },
                         new
                         {
-                            Id = "a28b35c5-7aeb-47cc-ba92-7077b4ddd231",
+                            Id = "52998451-f220-4291-b7d3-56cc120a38d6",
                             RepairStatus = "Wycena"
                         },
                         new
                         {
-                            Id = "961036d4-c331-4ea2-bfc0-c582d3308bc8",
+                            Id = "316f65c6-f9eb-4000-bb91-e57b5cec1606",
                             RepairStatus = "Oczekiwanie na akceptacje"
                         },
                         new
                         {
-                            Id = "33e0019b-2259-4717-9fad-f3f6eaf42e47",
+                            Id = "391f61e2-8dee-40a2-a6cb-f23a9c4ebd76",
                             RepairStatus = "Cena naprawy odrzucona"
                         },
                         new
                         {
-                            Id = "ed4c966f-586a-48b0-b161-ed4a6c949b2a",
+                            Id = "a0693762-5259-416a-a691-5c299f36c220",
                             RepairStatus = "Cena naprawy zaakceptowana"
                         },
                         new
                         {
-                            Id = "77675cb6-0ed9-4b08-8e46-1c7e1e80d006",
+                            Id = "f499f196-bd15-4065-9a26-5e6350fcd864",
                             RepairStatus = "Naprawa zakończona"
                         },
                         new
                         {
-                            Id = "4b4842d2-caba-48a8-bb74-0297e140a22a",
+                            Id = "485947f6-8717-4df7-8f92-8c050c6ececb",
                             RepairStatus = "Wysłano sprzęt do klienta"
                         },
                         new
                         {
-                            Id = "2d3ac697-c86c-44cc-8f27-476f2abe8059",
+                            Id = "85b11103-5e99-4a6e-93c3-724bad3d2b1f",
                             RepairStatus = "Zakończono"
                         },
                         new
                         {
-                            Id = "edd56a0f-f539-4ffb-8e08-0d72fb068016",
+                            Id = "fa9dd91c-18d8-4a17-9ccc-0cd995aaba5a",
                             RepairStatus = "Anulowano"
                         });
                 });

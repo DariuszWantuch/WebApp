@@ -19,7 +19,8 @@ namespace WebApp.Data.Repository
             Address = new AddressRepository(_db);
             RepairCost = new RepairCostRepository(_db);
             DeviceType = new DeviceTypeRepository(_db);
-           
+            User = new UserRepository(_db);
+
         }
         
         public IMarkRepository Mark { get; private set; }
@@ -28,6 +29,7 @@ namespace WebApp.Data.Repository
         public IAddressRepository Address { get; private set; }
         public IRepairCostRepository RepairCost { get; private set; }
         public IDeviceTypeRepository DeviceType { get; private set; }
+        public IUserRepository User { get; private set; }
 
         public void Dispose()
         {

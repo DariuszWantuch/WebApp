@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApp.Models;
+using WebApp.Services;
 
 namespace WebApp.Controllers
 {
@@ -6,10 +8,10 @@ namespace WebApp.Controllers
     [ApiController]
     public class NHibernateController : Controller
     {
-
+        
         public NHibernateController()
         {
-            
+          
         }
 
         [HttpGet, Route("Test")]

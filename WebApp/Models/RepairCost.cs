@@ -13,7 +13,7 @@ namespace WebApp.Models
         public string? FaultDescription { get; set; }
 
         [DataType(DataType.Currency)]
-        public float Cost { get; set; }
+        public double Cost { get; set; }
 
         public bool IsAccepted { get; set; }
 

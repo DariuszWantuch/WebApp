@@ -13,6 +13,7 @@ namespace WebApp.Data.Repository.IRepository
         IAddressRepository Address { get; }
         IRepairCostRepository RepairCost { get; }
         IDeviceTypeRepository DeviceType { get; }
+        IUserRepository User{ get; }
 
         void Save();
     }

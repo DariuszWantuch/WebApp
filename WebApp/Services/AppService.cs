@@ -1,4 +1,5 @@
-﻿using WebApp.Data.Repository.IRepository;
+﻿using Microsoft.AspNetCore.Identity;
+using WebApp.Data.Repository.IRepository;
 using WebApp.Models;
 
 namespace WebApp.Services
@@ -7,15 +8,17 @@ namespace WebApp.Services
     {
         private readonly Random _random = new Random();   
         private readonly IUnitOfWork _unitOfWork;
-        private readonly List<Mark> markList = new List<Mark>();
-        private readonly List<RepairCost> repairCostList = new List<RepairCost>();
-        private readonly List<Status> statusList = new List<Status>();
-        private readonly List<Address> addressList = new List<Address>();
-        private readonly List<DeviceType> deviceTypeList = new List<DeviceType>();
+        private readonly List<Mark> markList;
+        private readonly List<RepairCost> repairCostList;
+        private readonly List<Status> statusList;
+        private readonly List<Address> addressList;
+        private readonly List<DeviceType> deviceTypeList;
+        private readonly List<IdentityUser> identityUserList;
 
         public AppService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
+            identityUserList = _unitOfWork.User.GetAll().ToList();
             markList = _unitOfWork.Mark.GetAll().ToList();
             repairCostList = _unitOfWork.RepairCost.GetAll().ToList();
             statusList = _unitOfWork.Status.GetAll().ToList();
@@ -28,14 +31,17 @@ namespace WebApp.Services
             Repair repair = new Repair();
             repair.Describe = GetDescribe();
             repair.PickupDate = RandomDay();
+            repair.ReportDate = repair.PickupDate.AddDays(-3);
             repair.Tracking = GetTracking();
             repair.Warranty = GetWarranty();
 
             repair.Mark = GetMark();
-            repair.Address = GetAddress();  
+            repair.Address = GetAddress();
             repair.DeviceType = GetDeviceType();
             repair.Status = GetStatus();
-            repair.RepairCost = GetRepairCost();    
+            repair.RepairCost = GetRepairCost();
+            repair.IdentityUser = GetUser();
+            repair.DeviceModel = GetDeviceModel();
 
             return repair;
         }
@@ -44,7 +50,7 @@ namespace WebApp.Services
         {
             Address address = new Address();    
 
-            var index = _random.Next(addressList.Count); ;
+            var index = _random.Next(addressList.Count - 1); ;
             address = addressList[index];
 
             return address;
@@ -54,7 +60,7 @@ namespace WebApp.Services
         {
             DeviceType deviceType = new DeviceType();
 
-            var index = _random.Next(deviceTypeList.Count);
+            var index = _random.Next(deviceTypeList.Count - 1 );
             deviceType = deviceTypeList[index];
 
             return deviceType;
@@ -74,7 +80,7 @@ namespace WebApp.Services
         {
             RepairCost repairCost = new RepairCost();
 
-            var index = _random.Next(repairCostList.Count);
+            var index = _random.Next(repairCostList.Count - 1);
             repairCost = repairCostList[index];
 
             return repairCost;
@@ -84,10 +90,20 @@ namespace WebApp.Services
         {
             Status status = new Status();
 
-            var index = _random.Next(statusList.Count);
+            var index = _random.Next(statusList.Count - 1);
             status = statusList[index];
 
             return status;
+        }
+
+        private IdentityUser GetUser()
+        {
+            IdentityUser user = new IdentityUser();
+
+            var index = _random.Next(identityUserList.Count - 1);
+            user = identityUserList[index];
+
+            return user;
         }
 
         private string GetTracking()
@@ -100,11 +116,30 @@ namespace WebApp.Services
             trackingList.Add("https://inpost.pl/sledzenie-przesylek?number=875785735657856789867678");
             trackingList.Add("https://inpost.pl/sledzenie-przesylek?number=567895768567987689674797");
 
-            int index = _random.Next(trackingList.Count);
+            int index = _random.Next(trackingList.Count - 1);
 
             string tracking = trackingList[index];
 
             return tracking;
+        }
+
+        private string GetDeviceModel()
+        {
+            List<string> modelList = new List<string>();
+            modelList.Add("SCVB67");
+            modelList.Add("GHFGH6");
+            modelList.Add("GDH456JHF");
+            modelList.Add("5656DGDG76");
+            modelList.Add("DFG546DFG");
+            modelList.Add("DFGDFY556HF");
+            modelList.Add("45645DG56CFG5");
+
+
+            int index = _random.Next(modelList.Count - 1);
+
+            string model = modelList[index];
+
+            return model;
         }
 
 
@@ -117,7 +152,7 @@ namespace WebApp.Services
             warrantyList.Add("6 months");
             warrantyList.Add("3 months");
 
-            int index = _random.Next(warrantyList.Count);
+            int index = _random.Next(warrantyList.Count - 1);
 
             string warranty = warrantyList[index];
 
@@ -132,7 +167,7 @@ namespace WebApp.Services
             describeList.Add("Uszkodzona szyba.");
             describeList.Add("Uszkodzone drzwi.");      
 
-            int index = _random.Next(describeList.Count);
+            int index = _random.Next(describeList.Count - 1);
 
             string describe = describeList[index];
            
@@ -141,8 +176,8 @@ namespace WebApp.Services
 
         private DateTime RandomDay()
         {
-            DateTime start = new DateTime(1995, 1, 1);
-            int range = (DateTime.Today - start).Days;
+            DateTime start = new DateTime(2022, 7, 1);
+            int range = (DateTime.Now.AddDays(90) - start).Days;
             return start.AddDays(_random.Next(range));
         }
     }

@@ -4,6 +4,8 @@ using WebApp.Data.Repository;
 using WebApp.Data.Repository.IRepository;
 using WebApp.Models;
 using WebApp.Utility;
+using Microsoft.AspNetCore.Identity;
+using WebApp.Data.Init.IInit;
 
 namespace WebApp.Data
 {
@@ -65,6 +67,12 @@ namespace WebApp.Data
                 new { Id = GenerateID(), DeviceName = DeviceTypeSD.TV, TransportCost = DeviceTypeSD.TVCost },
                 new { Id = GenerateID(), DeviceName = DeviceTypeSD.Washer, TransportCost = DeviceTypeSD.WasherCost },
                 new { Id = GenerateID(), DeviceName = DeviceTypeSD.WashingMachine, TransportCost = DeviceTypeSD.WashingMachineCost }
+                );
+
+            builder.Entity<RepairCost>().HasData(
+                new { Id = GenerateID(), FaultDescription = "Uszkodzony silnik.", Cost = 67.6, IsAccepted = true, IsRejected = false },
+                new { Id = GenerateID(), FaultDescription = "Uszkodzone drzwi.", Cost = 67.6, IsAccepted = true, IsRejected = false },
+                new { Id = GenerateID(), FaultDescription = "Uszkodzony kabel.", Cost = 67.6, IsAccepted = true, IsRejected = false }
                 );
         }
 

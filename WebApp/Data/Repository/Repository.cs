@@ -25,6 +25,7 @@ namespace WebApp.Data.Repository
         public void Add(T entity)
         {
             dbSet.Add(entity);
+            Context.SaveChanges();
         }
 
         public string GenerateId()
