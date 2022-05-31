@@ -7,49 +7,48 @@ namespace WebApp.Models
     public class Repair
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string Id { get; set; }
+        public virtual Guid Id { get; set; }
 
         [DataType(DataType.DateTime)]
-        public DateTime ReportDate { get; set; }
+        public virtual DateTime ReportDate { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime PickupDate { get; set; }
+        public virtual DateTime PickupDate { get; set; }
 
         [DataType(DataType.Text)]
-        public string? DeviceModel { get; set; }
+        public virtual string? DeviceModel { get; set; }
 
         [DataType(DataType.MultilineText)]
-        public string? Describe { get; set; }
+        public virtual string? Describe { get; set; }
 
         [DataType(DataType.ImageUrl)]
-        public string? Warranty { get; set; }
+        public virtual string? Warranty { get; set; }
 
         [DataType(DataType.Text)]
-        public string? Tracking { get; set; }
+        public virtual string? Tracking { get; set; }
 
-        public string StatusId { get; set; }
+        public virtual string StatusId { get; set; }
         [ForeignKey("StatusId")]
         public virtual Status Status { get; set; }
 
-        public string RepairCostId { get; set; }
+        public virtual string RepairCostId { get; set; }
         [ForeignKey("RepairCostId")]
         public virtual RepairCost RepairCost { get; set; }
 
-        public string AddressId { get; set; }
+        public virtual string AddressId { get; set; }
         [ForeignKey("AddressId")]
         public virtual Address Address { get; set; }
 
-        public string DeviceTypeId { get; set; }
+        public virtual string DeviceTypeId { get; set; }
         [ForeignKey("DeviceTypeId")]
         public virtual DeviceType DeviceType { get; set; }
 
-        public string MarkId { get; set; }
+        public virtual string MarkId { get; set; }
 
         [ForeignKey("MarkId")]
         public virtual Mark Mark { get; set; }
 
-        public string UserId { get; set; }
+        public virtual string UserId { get; set; }
 
         [ForeignKey("UserId")]
         public virtual IdentityUser IdentityUser { get; set; }

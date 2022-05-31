@@ -7,25 +7,25 @@ namespace WebApp.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string Id { get; set; }
+        public virtual string Id { get; set; }
 
         [DataType(DataType.Text)]
-        public string? FirstName { get; set; }
+        public virtual string? FirstName { get; set; }
 
         [DataType(DataType.Text)]
-        public string? LastName { get; set; }
+        public virtual string? LastName { get; set; }
 
         [DataType(DataType.PhoneNumber)]
-        public int PhoneNumber { get; set; }
+        public virtual int PhoneNumber { get; set; }
 
         [DataType(DataType.Text)]
-        public string? Street { get; set; }
+        public virtual string? Street { get; set; }
 
         [DataType(DataType.Text)]
-        public string? City { get; set; }
+        public virtual string? City { get; set; }
 
         [DataType(DataType.PostalCode)]
-        public int PostalCode { get; set; }
+        public virtual int PostalCode { get; set; }
 
         public virtual ICollection<Repair> Repairs { get; set; }
     }

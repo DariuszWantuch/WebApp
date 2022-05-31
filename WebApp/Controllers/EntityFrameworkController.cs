@@ -1,13 +1,9 @@
 ﻿using System.Diagnostics;
-using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Running;
-using JetBrains.Profiler.Api;
-using JetBrains.Profiler.SelfApi;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Diagnostics.Tracing.Parsers.MicrosoftWindowsTCPIP;
 using WebApp.Data;
-using WebApp.Data.Repository.IRepository;
+using WebApp.Data.EntityFramework;
+using WebApp.Data.EntityFramework.Repository.IRepository;
 using WebApp.Models;
 using WebApp.Services;
 using Timer = System.Timers.Timer;
@@ -19,10 +15,10 @@ namespace WebApp.Controllers
     public class EntityFrameworkController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IEFUnitOfWork _unitOfWork;
         private readonly AppService _appService;
 
-        public EntityFrameworkController(AppService appService, IUnitOfWork unitOfWork, ApplicationDbContext context)
+        public EntityFrameworkController(AppService appService, IEFUnitOfWork unitOfWork, ApplicationDbContext context)
         {
             _context = context;
             _unitOfWork = unitOfWork;
@@ -49,14 +45,15 @@ namespace WebApp.Controllers
                     var repair = _appService.GetRepair();
 
                     _unitOfWork.Repair.Add(repair);
-                    _unitOfWork.Save();
                 }
+
+                _unitOfWork.Save();
 
                 stopwatch.Stop();
 
                 var time = stopwatch.ElapsedMilliseconds;
 
-                return StatusCode(200, "");
+                return StatusCode(200, "Dodano rekordy");
             }
             catch (Exception ex)
             {
@@ -70,17 +67,22 @@ namespace WebApp.Controllers
             try
             {
                 List<Repair> repairList = new List<Repair>();
+                Stopwatch stopwatch = new Stopwatch();
+
+                stopwatch.Start();
 
                 repairList = _unitOfWork.Repair.GetAll().ToList();
 
-                return StatusCode(200, "Dodano rekordy");
+                stopwatch.Stop();
+
+                var time = stopwatch.ElapsedMilliseconds;
+
+                return StatusCode(200, "Pobrano rekordy");
             }
             catch (Exception ex)
             {
                 return StatusCode(500, $"Wystąpił błąd: {ex}");
             }
         }
-
-        
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using WebApp.Data.Repository.IRepository;
+using WebApp.Data.EntityFramework.Repository.IRepository;
 using WebApp.Models;
 
 namespace WebApp.Services
@@ -7,7 +7,7 @@ namespace WebApp.Services
     public class AppService
     {
         private readonly Random _random = new Random();   
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IEFUnitOfWork _unitOfWork;
         private readonly List<Mark> markList;
         private readonly List<RepairCost> repairCostList;
         private readonly List<Status> statusList;
@@ -15,7 +15,7 @@ namespace WebApp.Services
         private readonly List<DeviceType> deviceTypeList;
         private readonly List<IdentityUser> identityUserList;
 
-        public AppService(IUnitOfWork unitOfWork)
+        public AppService(IEFUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
             identityUserList = _unitOfWork.User.GetAll().ToList();
@@ -29,6 +29,7 @@ namespace WebApp.Services
         public Repair GetRepair()
         {
             Repair repair = new Repair();
+            repair.Id = GenerateID();
             repair.Describe = GetDescribe();
             repair.PickupDate = RandomDay();
             repair.ReportDate = repair.PickupDate.AddDays(-3);
@@ -42,6 +43,13 @@ namespace WebApp.Services
             repair.RepairCost = GetRepairCost();
             repair.IdentityUser = GetUser();
             repair.DeviceModel = GetDeviceModel();
+
+            repair.MarkId = GetMark().Id;
+            repair.AddressId = GetAddress().Id;
+            repair.DeviceTypeId = GetDeviceType().Id;
+            repair.StatusId = GetStatus().Id;
+            repair.RepairCostId = GetRepairCost().Id;
+            repair.UserId = GetUser().Id;
 
             return repair;
         }
@@ -157,6 +165,11 @@ namespace WebApp.Services
             string warranty = warrantyList[index];
 
             return warranty;
+        }
+
+        private Guid GenerateID()
+        {
+            return Guid.NewGuid();
         }
 
         private string GetDescribe()

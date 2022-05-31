@@ -7,12 +7,12 @@ namespace WebApp.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string Id { get; set; }
+        public virtual string Id { get; set; }
 
         [DataType(DataType.Text)]
-        public string? DeviceName { get; set; }
+        public virtual string? DeviceName { get; set; }
 
         [DataType(DataType.Currency)]
-        public double TransportCost { get; set; }
+        public virtual double TransportCost { get; set; }
     }
 }

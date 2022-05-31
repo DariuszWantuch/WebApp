@@ -7,16 +7,16 @@ namespace WebApp.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string Id { get; set; }
+        public virtual string Id { get; set; }
 
         [DataType(DataType.MultilineText)]
-        public string? FaultDescription { get; set; }
+        public virtual string? FaultDescription { get; set; }
 
         [DataType(DataType.Currency)]
-        public double Cost { get; set; }
+        public virtual double Cost { get; set; }
 
-        public bool IsAccepted { get; set; }
+        public virtual bool IsAccepted { get; set; }
 
-        public bool IsRejected { get; set; }
+        public virtual bool IsRejected { get; set; }
     }
 }

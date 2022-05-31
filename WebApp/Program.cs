@@ -1,10 +1,14 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebApp.Data;
+using WebApp.Data.EntityFramework;
+using WebApp.Data.EntityFramework.Repository;
+using WebApp.Data.EntityFramework.Repository.IRepository;
 using WebApp.Data.Init;
 using WebApp.Data.Init.IInit;
-using WebApp.Data.Repository;
-using WebApp.Data.Repository.IRepository;
+using WebApp.Data.NH;
+using WebApp.Data.NH.Repository;
+using WebApp.Data.NH.Repository.IRepository;
 using WebApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -34,8 +38,9 @@ builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 
 builder.Services.AddTransient<AppService>();
 
+builder.Services.AddScoped<IEFUnitOfWork, EFUnitOfWork>();
 
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<INHUnitOfWork, NHUnitOfWork>();
 
 var app = builder.Build();
 
@@ -44,6 +49,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+NH.Init(); 
 
 using (var scope = app.Services.CreateScope())
 {

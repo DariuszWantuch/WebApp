@@ -7,10 +7,10 @@ namespace WebApp.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string Id { get; set; }
+        public virtual string Id { get; set; }
 
         [DataType(DataType.Text)]
-        public string? RepairStatus { get; set; }
+        public virtual string? RepairStatus { get; set; }
 
         public virtual ICollection<Repair> Repairs { get; set; }
     }
